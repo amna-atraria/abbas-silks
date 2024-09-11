@@ -4,13 +4,10 @@ $username="root";
 $pass="";
 $db="office_data";
 
-$conn=mysqli_connect($host,$username,$pass,$db);
+$conn= new mysqli($host,$username,$pass,$db);
 
 
-if ($conn) {
-        // echo "connected successfully";
-}
-else {
-    echo "not connected";
+if (!$conn) {
+        echo "Error";
 }
 ?>

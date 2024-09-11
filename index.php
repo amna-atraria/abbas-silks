@@ -26,9 +26,10 @@
 
 <body>
     <!-- Header area start here -->
-    <?php include("header.php");?>
-    <!-- Header area end here -->
     
+    
+    <!-- Header area end here -->
+    <?php include("header.php");?>
     <!-- Preloader area start -->
      <div class="loading">
         <span class="text-capitalize">L</span>
@@ -52,30 +53,32 @@
     <main>
 
         <!-- Banner area start here -->
+
         
          <section class="banner-two">
             <div class="banner-two__shape-left d-none d-lg-block wow bounceInLeft" data-wow-duration="1s"
                 data-wow-delay=".5s">
-                <img src="" alt="shape">
+                <img src="assets/images/shape/vape1.png" alt="shape">
             </div>
-            <div class="
-                <img class=""src="" alt="shape">
+            <div class="banner-two__shape-right d-none d-lg-block wow bounceInRight" data-wow-duration="1s"
+                data-wow-delay=".1s">
+                <img class="sway_Y__animation " src="assets/images/shape/vape2.png" alt="shape">
             </div>
             <div class="swiper banner-two__slider">
                 <div class="swiper-wrapper"> 
                     <div class="swiper-slide">
-                        <div class="slide-bg" data-background="assets/images/shape/3.jpg"></div>
+                        <div class="slide-bg" data-background="assets/images/banner/banner-two-image1.jpg"></div>
                         <div class="container">
                             <div class="banner-two__content">
                                 <h4 data-animation="fadeInUp" data-delay="1s"><img src="assets/images/icon/fire.svg"
                                         alt="icon"> GET <span class="primary-color">25% OFF</span> NOW</h4>
-                                <h1 data-animation="fadeInUp" data-delay="1.3s">Welcome to<br>
-                                     <span class="primary-color"> Abbas Silk</span></h1>
-                                <p class="mt-40" data-animation="fadeInUp" data-delay="1.5s">At Abbas Silk, 
-                                    we take pride in offering a stunning array of silk <br> sarees that seamlessly blend traditional artistry
-                                     with modern <br> elegance.
-                                     Our dedication to craftsmanship and quality ensures <br> thats each saree is a timeless piece 
-                                     of luxury and sophistication.</p>
+                                <h1 data-animation="fadeInUp" data-delay="1.3s">Find everything <br>
+                                    for <span class="primary-color">vaping</span></h1>
+                                <p class="mt-40" data-animation="fadeInUp" data-delay="1.5s">Sell globally in minutes
+                                    with localized currencies languages, and <br> experie in
+                                    every
+                                    market. only a variety of vaping
+                                    products</p>
                                 <div class="banner-two__info mt-30" data-animation="fadeInUp" data-delay="1.7s">
                                     <span class="mb-10">Starting Price</span>
                                     <h3>$99.00</h3>
@@ -96,13 +99,13 @@
                             <div class="banner-two__content">
                                 <h4 data-animation="fadeInUp" data-delay="1s"><img src="assets/images/icon/fire.svg"
                                         alt="icon"> GET <span class="primary-color">25% OFF</span> NOW</h4>
-                                <h1 data-animation="fadeInUp" data-delay="1.3s">Welcome to <br>
-                                     <span class="primary-color"> Abbas Silk</span></h1>
-                                <p class="mt-40" data-animation="fadeInUp" data-delay="1.5s">At Abbas Silk, 
-                                    we take pride in offering a stunning array of silk <br> sarees that seamlessly blend traditional artistry
-                                     with modern <br> elegance.
-                                     Our dedication to craftsmanship and quality ensures <br> thats each saree is a timeless piece of 
-                                     luxury and sophistication.</p>
+                                <h1 data-animation="fadeInUp" data-delay="1.3s">Find everything <br>
+                                    for <span class="primary-color">vaping</span></h1>
+                                <p class="mt-40" data-animation="fadeInUp" data-delay="1.5s">Sell globally in minutes
+                                    with localized currencies languages, and <br> experie in
+                                    every
+                                    market. only a variety of vaping
+                                    products</p>
                                 <div class="banner-two__info mt-30" data-animation="fadeInUp" data-delay="1.7s">
                                     <span class="mb-10">Starting Price</span>
                                     <h3>$99.00</h3>
@@ -124,14 +127,13 @@
                             <div class="banner-two__content">
                                 <h4 data-animation="fadeInUp" data-delay="1s"><img src="assets/images/icon/fire.svg"
                                         alt="icon"> GET <span class="primary-color">25% OFF</span> NOW</h4>
-                                <h1 data-animation="fadeInUp" data-delay="1.3s">Welcome to <br>
-                                     <span class="primary-color"> Abbas Silk</span></h1>
-                                <p class="mt-40" data-animation="fadeInUp" data-delay="1.5s">At Abbas Silk, 
-                                    we take pride in offering a stunning array of silk <br>sarees that seamlessly blend traditional artistry
-                                     with modern <br> elegance.
-                                     Our dedication to craftsmanship and quality ensures <br> thats each saree is a timeless piece of 
-                                     luxury and sophistication.</p>
-                                     <br> Owener Name # JAFFAR RAZA</p>
+                                <h1 data-animation="fadeInUp" data-delay="1.3s">Find everything <br>
+                                    for <span class="primary-color">vaping</span></h1>
+                                <p class="mt-40" data-animation="fadeInUp" data-delay="1.5s">Sell globally in minutes
+                                    with localized currencies languages, and <br> experie in
+                                    every
+                                    market. only a variety of vaping
+                                    products <br> Owener Name # JAFFAR RAZA</p>
 
                                 <div class="banner-two__info mt-30" data-animation="fadeInUp" data-delay="1.7s">
                                     <span class="mb-10">Starting Price</span>
@@ -324,34 +326,31 @@
                     <div id="latest-item" class="tab-pane fade show active">
                         <div class="row g-4">
                         <?php
-include("connection.php");
-
+                        include("connection.php");
 $sql = "SELECT * FROM products_table";
 $result = $conn->query($sql);
-
 while ($row = $result->fetch_assoc()) {
     $description = htmlspecialchars($row['description']);
+    // Truncate the description to a maximum of 100 characters
     $short_description = strlen($description) > 100 ? substr($description, 0, 100) . '...' : $description;
-    $product_id = htmlspecialchars($row['id']); // Assuming you have a product_id column
-    $price = htmlspecialchars($row['price']);
 ?>
 <div class="col-xxl-3 col-xl-4 col-md-6">
     <div class="product__item bor">
         <a href="#0" class="wishlist"><i class="fa-regular fa-heart"></i></a>
-        <a href="shop-single.php?id=<?= $product_id ?>" class="product__image pt-20 d-block">
+        <a href="shop-single.php" class="product__image pt-20 d-block">
             <img class="font-image" src="admin/<?php echo htmlspecialchars($row['image_url']); ?>" alt="Product Image">
             <img class="back-image" src="admin/<?php echo htmlspecialchars($row['image_url']); ?>" alt="Product Image">
         </a>
         <div class="product__content">
             <h4 class="mb-15">
-                <a class="primary-hover" href="shop-single.php?id=<?= $product_id ?>">
+                <a class="primary-hover" href="shop-single.php">
                     <?= htmlspecialchars($row['product_name']) ?>
                     <br>
                     <?= $short_description ?>
                 </a>
             </h4>
             <del>$74.50</del>
-            <span class="primary-color ml-10"><?= $price ?></span>
+            <span class="primary-color ml-10"><?= htmlspecialchars($row['price']) ?></span>
             <div class="star mt-20">
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
@@ -360,81 +359,41 @@ while ($row = $result->fetch_assoc()) {
                 <i class="fa-solid fa-star"></i>
             </div>
         </div>
-        <form class="product__cart d-block bor-top" data-product-id="<?= $product_id ?>" data-product-price="<?= $price ?>">
-            <input type="hidden" name="user_id" value="1"> <!-- Replace with actual user ID -->
-            <input type="hidden" name="product_id" value="<?= $product_id ?>">
-            <input type="hidden" name="quantity" value="1" min="1" class="quantity-input">
-            <button type="button" class="add-to-cart-btn d-block bor-top">
+        <a class="product__cart d-block bor-top" href="#0">
+        <script>
+        function addToCart(productId) {
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'add_to_cart.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        const response = JSON.parse(xhr.responseText);
+                        if (response.status === 'success') {
+                            alert('Item added to cart!');
+                        } else {
+                            alert('Error: ' + response.message);
+                        }
+                    } else {
+                        alert('Error adding item to cart.');
+                    }
+                }
+            };
+            xhr.send('product_id=' + encodeURIComponent(productId));
+        }
+    </script>
+</head>
+<body>
                 <i class="fa-regular fa-cart-shopping primary-color me-1"></i>
-                <span>Add to cart</span>
-            </button>
-        </form>
+            <button onclick="addToCart(1)"><span>Add to Cartt</span></button>
+           
+        </a>
     </div>
 </div>
 <?php
 }
 ?>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-$(document).ready(function() {
-    // Handle click event for all "Add to cart" buttons
-    $('.add-to-cart-btn').on('click', function() {
-        var form = $(this).closest('form');
-        var productId = form.data('product-id');
-        var productPrice = parseFloat(form.data('product-price'));
-        var quantity = parseInt(form.find('.quantity-input').val());
-
-        $.ajax({
-            url: 'add_to_cart.php',
-            type: 'POST',
-            data: {
-                user_id: form.find('input[name="user_id"]').val(),
-                product_id: productId,
-                quantity: quantity
-            },
-            success: function(response) {
-                var jsonResponse = JSON.parse(response);
-                if (jsonResponse.status === 'success') {
-                    // Update the cart display
-                    alert('Item added to cart successfully!');
-
-                    // Optionally update cart quantities and total price on the page
-                    var totalPrice = productPrice * quantity;
-                    $('.cart-total-price').text('$' + totalPrice.toFixed(2)); // Update cart total display
-                } else {
-                    alert('Failed to add item to cart: ' + (jsonResponse.message || 'Unknown error.'));
-                }
-            },
-            error: function(xhr, status, error) {
-                console.error('AJAX Error:', status, error);
-            }
-        });
-    });
-});
-</script>
-<a href="cart.php" style="
-   
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #fff;
-    background-color: ;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    border: 1px solid #c29723;
-        width:300px;
-        margin-top:;
-        margin-left:100px;
-">
-    View Cart
-</a>
-
-
-</div>
-
-
-
-                            
+                          
                                     <a href="#0" class="wishlist"><i class="fa-regular fa-heart"></i></a>
                                     <a href="shop-single.php" class="product__image pt-20 d-block">
                                         <img class="font-image" src="assets/images/product/product-image8.png"
@@ -444,7 +403,7 @@ $(document).ready(function() {
                                     </a>
                                     <div class="product__content">
                                         <h4 class="mb-15"><a class="primary-hover" href="shop-single.php">100ml
-                                                Nice
+                                                Nic
                                                 Salt Juice</a></h4>
                                         <del>$74.50</del><span class="primary-color ml-10">$49.50</span>
                                         <div class="star mt-20">
@@ -460,11 +419,14 @@ $(document).ready(function() {
                                             class="fa-regular fa-cart-shopping primary-color me-1"></i>
                                         <span>Add to
                                             cart</span></a>
+
+
+
                                 </div>
                             </div>
                         </div>
                     </div>
-                 
+                    <div id="top-ratting" class="tab-pane fade">
                         <div class="row g-4">
                             <div class="col-xxl-3 col-xl-4 col-md-6">
                                 <div class="product__item bor">
@@ -476,7 +438,7 @@ $(document).ready(function() {
                                             alt="image">
                                     </a>
                                     <div class="product__content">
-                                        <h4 class="mb-15"><a class="primary-hover" href="shop-single.php">Battery
+                                        <h4 class="mb-15"><a class="primary-hover" href="shop-single.html">Battery
                                                 And
                                                 Charger Kit</a></h4>
                                         <del>$74.50</del><span class="primary-color ml-10">$49.50</span>
@@ -505,7 +467,7 @@ $(document).ready(function() {
                                             alt="image">
                                     </a>
                                     <div class="product__content">
-                                        <h4 class="mb-15"><a class="primary-hover" href="shop-single.php">Pods
+                                        <h4 class="mb-15"><a class="primary-hover" href="shop-single.html">Pods
                                                 Sold
                                                 Separately</a></h4>
                                         <del>$74.50</del><span class="primary-color ml-10">$49.50</span>
@@ -534,7 +496,7 @@ $(document).ready(function() {
                                             alt="image">
                                     </a>
                                     <div class="product__content">
-                                        <h4 class="mb-15"><a class="primary-hover" href="shop-single.php">GeekVape
+                                        <h4 class="mb-15"><a class="primary-hover" href="shop-single.html">GeekVape
                                                 Obelisk Pod</a></h4>
                                         <del>$74.50</del><span class="primary-color ml-10">$49.50</span>
                                         <div class="star mt-20">
@@ -562,7 +524,7 @@ $(document).ready(function() {
                                             alt="image">
                                     </a>
                                     <div class="product__content">
-                                        <h4 class="mb-15"><a class="primary-hover" href="shop-single.php">POP Extra
+                                        <h4 class="mb-15"><a class="primary-hover" href="shop-single.html">POP Extra
                                                 Strawberry</a></h4>
                                         <del>$74.50</del><span class="primary-color ml-10">$49.50</span>
                                         <div class="star mt-20">
@@ -591,7 +553,7 @@ $(document).ready(function() {
                                     </a>
                                     <div class="product__content">
                                         <h4 class="mb-15"><a class="primary-hover" href="shop-single.html">100ml
-                                                Nice
+                                                Nic
                                                 Salt Juice</a></h4>
                                         <del>$74.50</del><span class="primary-color ml-10">$49.50</span>
                                         <div class="star mt-20">
@@ -611,7 +573,7 @@ $(document).ready(function() {
                             </div>
                         </div>
                     </div>
-                   
+                    <div id="featured-products" class="tab-pane fade">
                         <div class="row g-4">
                             <div class="col-xxl-3 col-xl-4 col-md-6">
                                 <div class="product__item bor">
@@ -768,7 +730,7 @@ $(document).ready(function() {
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="image mb-5 mb-lg-0"><img src="assets/images/discount/discount-image2.png"
-                                alt="image"></div>
+                                alt="image"></div> 
                     </div>
                     <div class="col-lg-6">
                         <div class="discount__item ps-0 pb-5 pb-lg-0 ps-lg-5">
@@ -784,7 +746,7 @@ $(document).ready(function() {
                                     market. only a variety of vaping
                                     products
                                 </p>
-                                <a class="btn-one wow fadeInUp" data-wow-delay=".3s" href="shop.php"><span>Shop
+                                <a class="btn-one wow fadeInUp" data-wow-delay=".3s" href="shop.html"><span>Shop
                                         Now</span></a>
                                 <a class="off-btn wow fadeInUp" data-wow-delay=".4s" href="#0"><img class="mr-10"
                                         src="assets/images/icon/fire.svg" alt="icon"> GET <span
